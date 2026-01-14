@@ -7,12 +7,14 @@ const { setmoreUrl, phoneDisplay, phoneLink, instagramHandle, whatsappLink } = A
   <div class="container space-y-10 py-14">
     <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
       <div class="space-y-4">
-        <img
-          src="/brand/catrines-icon-white.png"
-          alt="Catrines Barbería Tradicional"
-          class="h-10 w-auto"
-          loading="lazy"
-        />
+        <div class="inline-flex items-center border border-gold/30 bg-bone px-3 py-2">
+          <img
+            src="/brand/catrines-wordmark.png"
+            alt="Catrines Barbería Tradicional"
+            class="h-7 w-auto"
+            loading="lazy"
+          />
+        </div>
         <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Listo para tu próximo corte?</h2>
         <p class="text-ash">Reserva tu horario en Setmore y nos vemos en la silla.</p>
         <a class="btn btn-primary" href={setmoreUrl} target="_blank" rel="noreferrer">Agendar en Setmore</a>
