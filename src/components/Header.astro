@@ -1,0 +1,33 @@
+---
+// src/components/Header.astro - Sticky header with logo, navigation, and booking CTA.
+const { setmoreUrl } = Astro.props;
+---
+
+<header class="sticky top-0 z-50 border-b border-gold/20 bg-ink/90 backdrop-blur">
+  <div class="container flex items-center gap-4 py-3">
+    <a href="#top" class="flex items-center" aria-label="Catrines Barbería Tradicional">
+      <img
+        src="/brand/catrines-wordmark-white.png"
+        alt="Catrines Barbería Tradicional"
+        class="hidden h-8 w-auto md:block"
+        loading="lazy"
+      />
+      <img
+        src="/brand/catrines-icon-white.png"
+        alt="Catrines Barbería Tradicional"
+        class="h-8 w-auto md:hidden"
+        loading="lazy"
+      />
+    </a>
+
+    <nav aria-label="Navegación principal" class="flex flex-1 items-center gap-4 overflow-x-auto text-[0.65rem] uppercase tracking-[0.25em] text-ash">
+      <a href="#servicios" class="whitespace-nowrap transition hover:text-goldLight">Servicios</a>
+      <a href="#equipo" class="whitespace-nowrap transition hover:text-goldLight">Equipo</a>
+      <a href="#galeria" class="whitespace-nowrap transition hover:text-goldLight">Galería</a>
+      <a href="#ubicacion" class="whitespace-nowrap transition hover:text-goldLight">Ubicación</a>
+      <a href="#horarios" class="whitespace-nowrap transition hover:text-goldLight">Horarios</a>
+    </nav>
+
+    <a class="btn btn-primary text-[0.65rem]" href={setmoreUrl} target="_blank" rel="noreferrer">Agendar</a>
+  </div>
+</header>

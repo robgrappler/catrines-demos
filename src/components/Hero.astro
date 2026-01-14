@@ -1,0 +1,52 @@
+---
+// src/components/Hero.astro - Hero section with headline, CTAs, and trust badges.
+const { setmoreUrl, phoneLink } = Astro.props;
+const badges = ['Barbería tradicional', 'Atención con calma', 'Toalla caliente'];
+const trustPoints = [
+  'Toalla caliente en servicios de barba',
+  'Desvanecidos limpios y tijera con detalle',
+  'Ambiente clásico, trato directo',
+  'Agenda 24/7 en línea'
+];
+---
+
+<section class="section relative overflow-hidden">
+  <div class="absolute inset-0 bg-hero-radial"></div>
+  <div class="absolute inset-0 bg-hero-radial-2"></div>
+  <img
+    src="/brand/catrines-icon-white.png"
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none absolute right-6 top-6 h-40 w-auto opacity-10 blur-sm sm:h-56"
+    loading="lazy"
+  />
+  <div class="container relative">
+    <div class="max-w-2xl space-y-6">
+      <div class="flex flex-wrap gap-2 reveal">
+        {badges.map((badge) => (
+          <span class="chip" aria-label={badge}>{badge}</span>
+        ))}
+      </div>
+
+      <div class="space-y-4 reveal reveal-delay-1">
+        <h1 class="font-heading text-4xl uppercase tracking-[0.25em] sm:text-5xl">Catrines Barbería Tradicional</h1>
+        <p class="text-lg text-ash sm:text-xl">Cortes con carácter, barba con toalla caliente y atención como debe ser. En Monterrey, N.L.</p>
+        <p class="text-sm uppercase tracking-[0.35em] text-goldLight">Agenda en segundos. Llega, siéntate, sal con estilo.</p>
+      </div>
+
+      <div class="flex flex-wrap gap-4 reveal reveal-delay-2">
+        <a class="btn btn-primary" href={setmoreUrl} target="_blank" rel="noreferrer">Agenda tu cita</a>
+        <a class="btn btn-outline" href={phoneLink}>Llamar ahora</a>
+      </div>
+
+      <ul class="grid gap-3 text-sm text-ash sm:grid-cols-2 reveal reveal-delay-3">
+        {trustPoints.map((point) => (
+          <li class="flex items-start gap-2">
+            <span class="mt-1 h-2 w-2 border border-gold"></span>
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

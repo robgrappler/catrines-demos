@@ -1,0 +1,33 @@
+---
+// src/components/Location.astro - Location section with address, map embed, and contact buttons.
+const { address, mapsLink, whatsappLink, mapEmbedUrl } = Astro.props;
+---
+
+<section id="ubicacion" class="section">
+  <div class="container grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+    <div class="space-y-4">
+      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Encuéntranos en Monterrey</h2>
+      <p class="text-ash">Llegas fácil. Sales mejor.</p>
+
+      <div class="space-y-1 text-sm">
+        <p class="text-bone">{address}</p>
+        <p class="text-xs uppercase tracking-[0.2em] text-ash">(confirma dirección)</p>
+      </div>
+
+      <div class="flex flex-wrap gap-4">
+        <a class="btn btn-primary" href={mapsLink} target="_blank" rel="noreferrer">Cómo llegar</a>
+        <a class="btn btn-outline" href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="border border-gold/20 bg-coal/70 p-2">
+      <iframe
+        title="Mapa de Monterrey"
+        class="h-72 w-full border-0 sm:h-96"
+        loading="lazy"
+        src={mapEmbedUrl}
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</section>

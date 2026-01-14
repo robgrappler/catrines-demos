@@ -1,3 +1,4 @@
+// tsconfig.json - TypeScript configuration for Astro.
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],

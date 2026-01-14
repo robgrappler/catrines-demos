@@ -1,11 +1,66 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+// src/pages/index.astro - Single-page site for Catrines Barbería Tradicional.
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Team from '../components/Team.astro';
+import Gallery from '../components/Gallery.astro';
+import Location from '../components/Location.astro';
+import Hours from '../components/Hours.astro';
+import Footer from '../components/Footer.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const setmoreUrl = 'https://catrines.setmore.com/';
+const phoneDisplay = '+52 81 2401 1787';
+const phoneLink = 'tel:+528124011787';
+const whatsappLink = 'https://wa.me/528124011787';
+const instagramHandle = '@barberia.catrines';
+const address = 'Av. Paseo de las Américas #2403, Monterrey, N.L.';
+const mapsLink =
+  'https://www.google.com/maps/search/?api=1&query=Av.%20Paseo%20de%20las%20Am%C3%A9ricas%20%232403%2C%20Monterrey%2C%20N.L.';
+const mapEmbedUrl =
+  'https://maps.google.com/maps?q=Av.%20Paseo%20de%20las%20Am%C3%A9ricas%20%232403%2C%20Monterrey%2C%20N.L.&t=&z=14&ie=UTF8&iwloc=&output=embed';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Catrines Barbería Tradicional | Monterrey, NL</title>
+    <meta
+      name="description"
+      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado. Agenda tu cita en Catrines Barbería Tradicional en Monterrey, N.L."
+    />
+    <meta property="og:title" content="Catrines Barbería Tradicional | Monterrey, NL" />
+    <meta
+      property="og:description"
+      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado. Agenda tu cita en Catrines Barbería Tradicional en Monterrey, N.L."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:image" content="/og-catrines.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0b0b0b" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body id="top">
+    <Header setmoreUrl={setmoreUrl} />
+    <main class="pb-24">
+      <Hero setmoreUrl={setmoreUrl} phoneLink={phoneLink} />
+      <Services setmoreUrl={setmoreUrl} />
+      <Team setmoreUrl={setmoreUrl} />
+      <Gallery />
+      <Location address={address} mapsLink={mapsLink} whatsappLink={whatsappLink} mapEmbedUrl={mapEmbedUrl} />
+      <Hours />
+    </main>
+    <Footer
+      setmoreUrl={setmoreUrl}
+      phoneDisplay={phoneDisplay}
+      phoneLink={phoneLink}
+      instagramHandle={instagramHandle}
+      whatsappLink={whatsappLink}
+    />
+  </body>
+</html>

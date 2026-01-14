@@ -1,0 +1,40 @@
+---
+// src/components/Gallery.astro - Gallery section with Instagram placeholders.
+const galleryImages = [
+  { src: '/instagram/catrines-1.webp', alt: 'Detalle de corte en Catrines 1' },
+  { src: '/instagram/catrines-2.webp', alt: 'Detalle de corte en Catrines 2' },
+  { src: '/instagram/catrines-3.webp', alt: 'Detalle de corte en Catrines 3' },
+  { src: '/instagram/catrines-4.webp', alt: 'Detalle de corte en Catrines 4' },
+  { src: '/instagram/catrines-5.webp', alt: 'Detalle de corte en Catrines 5' },
+  { src: '/instagram/catrines-6.webp', alt: 'Detalle de corte en Catrines 6' },
+  { src: '/instagram/catrines-7.webp', alt: 'Detalle de corte en Catrines 7' },
+  { src: '/instagram/catrines-8.webp', alt: 'Detalle de corte en Catrines 8' }
+];
+---
+
+<section id="galeria" class="section bg-ember/60">
+  <div class="container space-y-8">
+    <div class="space-y-2">
+      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Trabajo real. Estilo real.</h2>
+      <p class="text-ash">Mira resultados y detalles en Instagram.</p>
+      <p class="text-sm uppercase tracking-[0.3em] text-goldLight">@barberia.catrines</p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      {galleryImages.map((image, index) => (
+        <div
+          class="aspect-[4/5] overflow-hidden border border-gold/20 bg-ember/70 reveal"
+          style={`animation-delay: ${index * 0.05}s;`}
+        >
+          <img
+            src={image.src}
+            alt={image.alt}
+            class="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

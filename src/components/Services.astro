@@ -1,0 +1,86 @@
+---
+// src/components/Services.astro - Services and pricing cards with booking links.
+const { setmoreUrl } = Astro.props;
+const services = [
+  {
+    name: 'Corte y Barba',
+    price: '$370',
+    duration: '1 hr',
+    description: 'Corte y delineado de barba con toalla caliente'
+  },
+  {
+    name: 'Corte de Cabello',
+    price: '$250',
+    duration: '45 min',
+    description: 'Corte solo con tijera o desvanecido con rasuradora'
+  },
+  {
+    name: 'Corte, Limpieza Facial y Mascarilla',
+    price: '$330',
+    duration: '45 min',
+    description: 'Ritual rápido para refrescar y cuidar la piel.'
+  },
+  {
+    name: 'Corte y masaje anti estrés',
+    price: '$280',
+    duration: '45 min',
+    description: 'Corte clásico con masaje para bajar el ritmo.'
+  },
+  {
+    name: 'Corte y delineado/perfilado de ceja',
+    price: '$290',
+    duration: '45 min',
+    description: 'Perfilado limpio para un look más definido.'
+  },
+  {
+    name: 'Corte y Barba express',
+    price: '$330',
+    duration: '45 min',
+    description: 'Servicio ágil sin perder detalle en el acabado.'
+  },
+  {
+    name: 'Delineado de barba (toalla caliente)',
+    price: '$200',
+    duration: '30 min',
+    description: 'Perfila la barba con precisión y toalla caliente.'
+  },
+  {
+    name: 'Cera española oídos y fosas nasales',
+    price: '$100',
+    duration: '1 hr',
+    description: 'Limpieza precisa para un acabado prolijo.'
+  },
+  {
+    name: 'Corte y limpieza facial',
+    price: '$290',
+    duration: '45 min',
+    description: 'Corte con limpieza facial para renovar el look.'
+  }
+];
+---
+
+<section id="servicios" class="section">
+  <div class="container space-y-8">
+    <div class="space-y-2">
+      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Servicios y precios</h2>
+      <p class="text-ash">Todo claro, sin vueltas. Elige tu servicio y reserva.</p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {services.map((service, index) => (
+        <article class="card flex h-full flex-col gap-4 reveal" style={`animation-delay: ${index * 0.08}s;`}>
+          <div class="space-y-2">
+            <h3 class="text-lg font-semibold text-bone">{service.name}</h3>
+            <div class="flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-goldLight">
+              <span>{service.price}</span>
+              <span class="h-3 w-px bg-gold/40"></span>
+              <span>{service.duration}</span>
+            </div>
+            <p class="text-sm text-ash">{service.description}</p>
+          </div>
+          <a class="btn btn-outline mt-auto text-xs" href={setmoreUrl} target="_blank" rel="noreferrer">Reservar</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

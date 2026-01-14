@@ -1,0 +1,37 @@
+---
+// src/components/Footer.astro - Footer with final CTA, contact details, and mobile CTA bar.
+const { setmoreUrl, phoneDisplay, phoneLink, instagramHandle, whatsappLink } = Astro.props;
+---
+
+<footer class="border-t border-gold/20 bg-ink">
+  <div class="container space-y-10 py-14">
+    <div class="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+      <div class="space-y-4">
+        <img
+          src="/brand/catrines-icon-white.png"
+          alt="Catrines Barbería Tradicional"
+          class="h-10 w-auto"
+          loading="lazy"
+        />
+        <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Listo para tu próximo corte?</h2>
+        <p class="text-ash">Reserva tu horario en Setmore y nos vemos en la silla.</p>
+        <a class="btn btn-primary" href={setmoreUrl} target="_blank" rel="noreferrer">Agendar en Setmore</a>
+      </div>
+      <div class="space-y-3 text-sm">
+        <p class="uppercase tracking-[0.25em] text-ash">Contacto directo</p>
+        <a class="block text-bone" href={phoneLink}>{phoneDisplay}</a>
+        <a class="block text-bone" href="https://instagram.com" target="_blank" rel="noreferrer">{instagramHandle}</a>
+        <a class="block text-bone" href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
+    </div>
+
+    <p class="text-xs uppercase tracking-[0.2em] text-ash">Sitio de muestra. Reservas gestionadas por Setmore.</p>
+  </div>
+
+  <div class="fixed bottom-0 left-0 right-0 z-50 border-t border-gold/20 bg-ink/95 backdrop-blur sm:hidden">
+    <div class="container flex items-center justify-between gap-3 py-3">
+      <a class="btn btn-primary flex-1 text-center text-[0.65rem]" href={setmoreUrl} target="_blank" rel="noreferrer">Agendar</a>
+      <a class="btn btn-outline flex-1 text-center text-[0.65rem]" href={phoneLink}>Llamar</a>
+    </div>
+  </div>
+</footer>
