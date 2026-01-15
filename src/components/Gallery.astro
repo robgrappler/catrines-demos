@@ -1,48 +1,68 @@
 ---
-// src/components/Gallery.astro - Gallery section with Instagram placeholders.
+// src/components/Gallery.astro
 const galleryImages = [
-  { src: '/instagram/catrines-1.webp', alt: 'Detalle de corte en Catrines 1' },
-  { src: '/instagram/catrines-2.webp', alt: 'Detalle de corte en Catrines 2' },
-  { src: '/instagram/catrines-3.webp', alt: 'Detalle de corte en Catrines 3' },
-  { src: '/instagram/catrines-4.webp', alt: 'Detalle de corte en Catrines 4' },
-  { src: '/instagram/catrines-5.webp', alt: 'Detalle de corte en Catrines 5' },
-  { src: '/instagram/catrines-6.webp', alt: 'Detalle de corte en Catrines 6' },
-  { src: '/instagram/catrines-7.webp', alt: 'Detalle de corte en Catrines 7' },
-  { src: '/instagram/catrines-8.webp', alt: 'Detalle de corte en Catrines 8' }
+  { src: '/instagram/catrines-1.webp', alt: 'Corte tradicional' },
+  { src: '/instagram/catrines-2.webp', alt: 'Detalle de barbería' },
+  { src: '/instagram/catrines-3.webp', alt: 'Ambiente Catrines' },
+  { src: '/instagram/catrines-4.webp', alt: 'Herramientas de trabajo' },
+  { src: '/instagram/catrines-5.webp', alt: 'Cliente satisfecho' },
+  { src: '/instagram/catrines-6.webp', alt: 'Estilo clásico' },
+  // Limit mobile to 6 images, desktop can handle more naturally via grid
 ];
 ---
 
-<section id="galeria" class="section bg-ember/60">
-  <div class="container space-y-8">
-    <div class="space-y-2">
-      <div class="inline-flex items-center border border-gold/30 bg-bone px-3 py-2">
-        <img
-          src="/brand/catrines-stacked-black.png"
-          alt="Catrines Barbería Tradicional"
-          class="h-8 w-auto"
-          loading="lazy"
-        />
+<section id="galeria" class="py-20 bg-zinc-900 border-t border-white/5">
+  <div class="container-custom">
+    <div class="mb-12 flex flex-col items-center justify-between gap-4 md:flex-row md:items-end">
+      <div>
+        <h2 class="font-serif text-3xl text-zinc-100 md:text-4xl">Galería</h2>
+        <div class="mt-2 h-1 w-20 bg-gold"></div>
       </div>
-      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Trabajo real. Estilo real.</h2>
-      <p class="text-ash">Mira resultados y detalles en Instagram.</p>
-      <p class="text-sm uppercase tracking-[0.3em] text-goldLight">@barberia.catrines</p>
+      <a 
+        href="https://instagram.com/barberia.catrines" 
+        target="_blank"  
+        class="hidden md:block text-sm font-bold uppercase tracking-widest text-zinc-500 hover:text-gold transition-colors"
+      >
+        @barberia.catrines
+      </a>
     </div>
 
-    <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-      {galleryImages.map((image, index) => (
-        <div
-          class="aspect-[4/5] overflow-hidden border border-gold/20 bg-ember/70 reveal"
-          style={`animation-delay: ${index * 0.05}s;`}
+    <!-- Masonry-ish Grid -->
+    <div class="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
+      {galleryImages.map((img, i) => (
+        <a 
+          href="https://instagram.com/barberia.catrines"
+          target="_blank"
+          class={`relative group overflow-hidden bg-zinc-800 focus:outline-none ${i > 5 ? 'hidden lg:block' : ''}`}
         >
-          <img
-            src={image.src}
-            alt={image.alt}
-            class="h-full w-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
+          <div class="aspect-square w-full">
+            <img 
+              src={img.src} 
+              alt={img.alt} 
+              class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100" 
+              loading="lazy"
+            />
+          </div>
+          <!-- Hover Overlay -->
+          <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
+             <span class="text-white text-2xl">
+               <!-- Simple Icon or Text -->
+               &nearr;
+             </span>
+          </div>
+        </a>
       ))}
+    </div>
+
+    <!-- Mobile Instagram Link -->
+    <div class="mt-8 text-center md:hidden">
+      <a 
+        href="https://instagram.com/barberia.catrines" 
+        target="_blank" 
+        class="text-sm font-bold uppercase tracking-widest text-gold hover:text-white transition-colors"
+      >
+        Ver más en Instagram &rarr;
+      </a>
     </div>
   </div>
 </section>

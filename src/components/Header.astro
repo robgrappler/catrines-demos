@@ -1,33 +1,134 @@
 ---
-// src/components/Header.astro - Sticky header with logo, navigation, and booking CTA.
+// src/components/Header.astro
 const { setmoreUrl } = Astro.props;
 ---
 
-<header class="sticky top-0 z-50 border-b border-gold/20 bg-ink/90 backdrop-blur">
-  <div class="container flex items-center gap-4 py-3">
-    <a href="#top" class="flex items-center" aria-label="Catrines Barbería Tradicional">
+<header
+  class="fixed top-0 z-50 w-full border-b border-white/5 bg-zinc-900/90 backdrop-blur-md"
+>
+  <div class="container-custom flex h-16 items-center justify-between">
+    <!-- Logo -->
+    <a href="#" class="block w-32 md:w-40 transition-opacity hover:opacity-80">
       <img
         src="/brand/catrines-wordmark-white.png"
-        alt="Catrines Barbería Tradicional"
-        class="hidden h-8 w-auto md:block"
-        loading="lazy"
-      />
-      <img
-        src="/brand/catrines-icon-white.png"
-        alt="Catrines Barbería Tradicional"
-        class="h-8 w-auto md:hidden"
-        loading="lazy"
+        alt="Catrines Barbería"
+        class="h-auto w-full"
+        width="160"
+        height="40"
       />
     </a>
 
-    <nav aria-label="Navegación principal" class="flex flex-1 items-center gap-4 overflow-x-auto text-[0.65rem] uppercase tracking-[0.25em] text-ash">
-      <a href="#servicios" class="whitespace-nowrap transition hover:text-goldLight">Servicios</a>
-      <a href="#equipo" class="whitespace-nowrap transition hover:text-goldLight">Equipo</a>
-      <a href="#galeria" class="whitespace-nowrap transition hover:text-goldLight">Galería</a>
-      <a href="#ubicacion" class="whitespace-nowrap transition hover:text-goldLight">Ubicación</a>
-      <a href="#horarios" class="whitespace-nowrap transition hover:text-goldLight">Horarios</a>
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a
+        href="#servicios"
+        class="text-sm font-medium uppercase tracking-widest text-zinc-300 hover:text-white transition-colors"
+        >Servicios</a
+      >
+      <a
+        href="#equipo"
+        class="text-sm font-medium uppercase tracking-widest text-zinc-300 hover:text-white transition-colors"
+        >Equipo</a
+      >
+      <a
+        href="#galeria"
+        class="text-sm font-medium uppercase tracking-widest text-zinc-300 hover:text-white transition-colors"
+        >Galería</a
+      >
+      <a
+        href="#ubicacion"
+        class="text-sm font-medium uppercase tracking-widest text-zinc-300 hover:text-white transition-colors"
+        >Ubicación</a
+      >
+      <a
+        href={setmoreUrl}
+        target="_blank"
+        rel="noreferrer"
+        class="bg-gold px-6 py-2 text-sm font-semibold uppercase tracking-wider text-zinc-900 transition-transform hover:scale-105"
+      >
+        Agendar
+      </a>
     </nav>
 
-    <a class="btn btn-primary text-[0.65rem]" href={setmoreUrl} target="_blank" rel="noreferrer">Agendar</a>
+    <!-- Mobile Menu Button -->
+    <button
+      id="menu-toggle"
+      class="text-zinc-100 md:hidden focus:outline-none"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.5"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+    </button>
   </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <nav
+    id="mobile-menu"
+    class="hidden flex-col border-t border-white/5 bg-zinc-900 px-6 py-6 transition-all md:hidden"
+  >
+    <a
+      href="#servicios"
+      class="border-b border-white/5 py-4 text-center font-serif text-xl text-zinc-200"
+      >Servicios</a
+    >
+    <a
+      href="#equipo"
+      class="border-b border-white/5 py-4 text-center font-serif text-xl text-zinc-200"
+      >Equipo</a
+    >
+    <a
+      href="#galeria"
+      class="border-b border-white/5 py-4 text-center font-serif text-xl text-zinc-200"
+      >Galería</a
+    >
+    <a
+      href="#ubicacion"
+      class="border-b border-white/5 py-4 text-center font-serif text-xl text-zinc-200"
+      >Ubicación</a
+    >
+    <div class="pt-6 text-center">
+      <a
+        href={setmoreUrl}
+        target="_blank"
+        rel="noreferrer"
+        class="inline-block w-full bg-gold py-3 text-sm font-bold uppercase tracking-widest text-zinc-900"
+      >
+        Agendar Cita
+      </a>
+    </div>
+  </nav>
 </header>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", !isExpanded);
+      mobileMenu.classList.toggle("hidden");
+      mobileMenu.classList.toggle("flex");
+    });
+
+    // Close menu when clicking a link
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("flex");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+</script>

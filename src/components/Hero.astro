@@ -1,52 +1,75 @@
 ---
-// src/components/Hero.astro - Hero section with headline, CTAs, and trust badges.
+// src/components/Hero.astro
 const { setmoreUrl, phoneLink } = Astro.props;
-const badges = ['Barbería tradicional', 'Atención con calma', 'Toalla caliente'];
-const trustPoints = [
-  'Toalla caliente en servicios de barba',
-  'Desvanecidos limpios y tijera con detalle',
-  'Ambiente clásico, trato directo',
-  'Agenda 24/7 en línea'
-];
 ---
 
-<section class="section relative overflow-hidden">
-  <div class="absolute inset-0 bg-hero-radial"></div>
-  <div class="absolute inset-0 bg-hero-radial-2"></div>
-  <img
-    src="/brand/catrines-stacked-white.png"
-    alt=""
-    aria-hidden="true"
-    class="pointer-events-none absolute right-6 top-6 h-40 w-auto opacity-10 blur-sm sm:h-56"
-    loading="lazy"
-  />
-  <div class="container relative">
-    <div class="max-w-2xl space-y-6">
-      <div class="flex flex-wrap gap-2 reveal">
-        {badges.map((badge) => (
-          <span class="chip" aria-label={badge}>{badge}</span>
-        ))}
-      </div>
+<section
+  class="relative flex min-h-[85vh] w-full items-center justify-center overflow-hidden bg-zinc-900 pt-16"
+>
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 z-10 bg-zinc-900/70"></div>
+    <!-- Dark overlay -->
+    <!-- Assuming hero.jpg or similar exists, otherwise fallback to bg color -->
+    <div
+      class="h-full w-full bg-[url('/local/hero-bg.jpg')] bg-cover bg-center opacity-60 mix-blend-overlay"
+    >
+    </div>
+    <!-- If no image is strictly defined in prompt, rely on color or generic placeholder if provided. 
+          Prompt said "Background image (darkened via CSS overlay)". 
+          I will try to use a standard placeholder path if no specific file was mentioned,
+          or rely on the solid dark vibe if image is missing. 
+          Let's assume a generic class or inline style that can load an image if present. -->
+    <img
+      src="/instagram/catrines-4.webp"
+      class="h-full w-full object-cover opacity-40 grayscale"
+      alt="Catrines Interior"
+    />
+  </div>
 
-      <div class="space-y-4 reveal reveal-delay-1">
-        <h1 class="font-heading text-4xl uppercase tracking-[0.25em] sm:text-5xl">Catrines Barbería Tradicional</h1>
-        <p class="text-lg text-ash sm:text-xl">Cortes con carácter, barba con toalla caliente y atención como debe ser. En Monterrey, N.L.</p>
-        <p class="text-sm uppercase tracking-[0.35em] text-goldLight">Agenda en segundos. Llega, siéntate, sal con estilo.</p>
-      </div>
+  <div
+    class="container-custom relative z-20 flex flex-col items-center text-center"
+  >
+    <!-- Hero Logo -->
+    <div class="animate-fade-in-up mb-6 max-w-[200px] md:max-w-xs">
+      <img
+        src="/brand/catrines-stacked.png"
+        alt="Catrines Barbería"
+        class="h-auto w-full drop-shadow-2xl"
+        width="300"
+        height="300"
+        loading="eager"
+      />
+    </div>
 
-      <div class="flex flex-wrap gap-4 reveal reveal-delay-2">
-        <a class="btn btn-primary" href={setmoreUrl} target="_blank" rel="noreferrer">Agenda tu cita</a>
-        <a class="btn btn-outline" href={phoneLink}>Llamar ahora</a>
-      </div>
+    <!-- Value Prop -->
+    <h1
+      class="font-serif text-2xl font-light leading-tight text-zinc-100 md:text-4xl lg:text-5xl max-w-2xl mx-auto"
+    >
+      <span
+        class="block text-gold mb-2 text-lg md:text-xl uppercase tracking-[0.2em] font-sans font-medium"
+        >Tradición Regia</span
+      >
+      Cortes clásicos, afeitado tradicional y el respeto que mereces.
+    </h1>
 
-      <ul class="grid gap-3 text-sm text-ash sm:grid-cols-2 reveal reveal-delay-3">
-        {trustPoints.map((point) => (
-          <li class="flex items-start gap-2">
-            <span class="mt-1 h-2 w-2 border border-gold"></span>
-            <span>{point}</span>
-          </li>
-        ))}
-      </ul>
+    <!-- CTA -->
+    <div class="mt-8 md:mt-10 flex flex-col gap-4 sm:flex-row">
+      <a
+        href={setmoreUrl}
+        target="_blank"
+        rel="noreferrer"
+        class="min-w-[180px] bg-gold py-3.5 px-8 text-center text-sm font-bold uppercase tracking-widest text-zinc-900 transition-all hover:bg-white hover:text-zinc-900 shadow-xl"
+      >
+        Agendar Cita
+      </a>
+      <!-- Optional Secondary Button for Desktop -->
+      <a
+        href={phoneLink}
+        class="hidden sm:inline-block min-w-[180px] border border-white/20 py-3.5 px-8 text-center text-sm font-bold uppercase tracking-widest text-white transition-all hover:border-gold hover:text-gold"
+      >
+        Llamar
+      </a>
     </div>
   </div>
 </section>

@@ -1,74 +1,48 @@
 ---
-// src/components/Team.astro - Team section highlighting Diego and Americo.
+// src/components/Team.astro
 const { setmoreUrl } = Astro.props;
 
 const members = [
   {
     name: 'Diego',
     role: 'Fundador / Barbero',
-    bio: 'El ojo detrás del estilo Catrines. Cortes con carácter y acabados limpios, sin prisa y con precisión.',
-    badges: ['Corte clásico y moderno', 'Detalle con tijera', 'Atención directa'],
     image: '/team-diego.jpg',
-    alt: 'Diego — Fundador / Barbero en Catrines Barbería'
   },
   {
     name: 'Américo',
     role: 'Barbero / Mano derecha',
-    bio: 'Ritmo firme y manos seguras. Desvanecidos pulidos, barba con forma y consistencia en cada cita.',
-    badges: ['Desvanecidos limpios', 'Perfilado de barba', 'Consistencia'],
     image: '/team-americo.jpg',
-    alt: 'Américo — Barbero / Mano derecha en Catrines Barbería'
   }
 ];
 ---
 
-<section id="equipo" class="section">
-  <div class="container space-y-8">
-    <div class="space-y-2">
-      <img
-        src="/brand/catrines-icon-white.png"
-        alt="Catrines Barbería Tradicional"
-        class="h-8 w-auto"
-        loading="lazy"
-      />
-      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">El equipo</h2>
-      <p class="text-ash">Dos manos, un estándar: detalle, limpieza y trato directo.</p>
+<section id="equipo" class="py-20 bg-black/30">
+  <div class="container-custom">
+    <div class="mb-16 text-center">
+      <h2 class="font-serif text-3xl text-zinc-100 md:text-4xl">El Equipo</h2>
+      <div class="mx-auto mt-2 h-1 w-20 bg-gold"></div>
     </div>
 
-    <div class="grid gap-6 lg:grid-cols-2">
-      {members.map((member, index) => (
-        <article class="card flex flex-col gap-5 reveal" style={`animation-delay: ${index * 0.1}s;`}>
-          <div class="overflow-hidden border border-gold/20 bg-[linear-gradient(135deg,_rgba(11,11,11,0.85),_rgba(27,27,27,0.9))]">
+    <div class="grid gap-8 sm:grid-cols-2 md:gap-12 max-w-4xl mx-auto">
+      {members.map((member) => (
+        <div class="group">
+          <!-- Image Container - Strict 3/4 aspect ratio with object-top alignment to preserve heads -->
+          <div class="relative overflow-hidden aspect-[3/4] bg-zinc-800 mb-6">
             <img
               src={member.image}
-              alt={member.alt}
-              width="1024"
-              height="1536"
-              class="h-auto w-full object-contain"
+              alt={member.name}
+              class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
               loading="lazy"
-              decoding="async"
             />
+            <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent opacity-60"></div>
           </div>
-
-          <div class="space-y-3">
-            <div>
-              <h3 class="text-xl font-semibold text-bone">{member.name}</h3>
-              <p class="text-xs uppercase tracking-[0.3em] text-goldLight">{member.role}</p>
-            </div>
-            <p class="text-sm text-ash">{member.bio}</p>
-            <div class="flex flex-wrap gap-2">
-              {member.badges.map((badge) => (
-                <span class="chip text-[0.6rem]">{badge}</span>
-              ))}
-            </div>
+          
+          <div class="text-center">
+            <h3 class="font-serif text-2xl text-zinc-100 mb-1">{member.name}</h3>
+            <p class="text-xs font-bold uppercase tracking-widest text-gold opacity-90">{member.role}</p>
           </div>
-        </article>
+        </div>
       ))}
-    </div>
-
-    <div class="flex flex-col gap-3 border border-gold/20 bg-coal/70 p-5 sm:flex-row sm:items-center sm:justify-between">
-      <p class="text-sm uppercase tracking-[0.2em] text-ash">Agenda con el equipo</p>
-      <a class="btn btn-primary text-xs" href={setmoreUrl} target="_blank" rel="noreferrer">Agendar en Setmore</a>
     </div>
   </div>
 </section>

@@ -1,15 +1,17 @@
 ---
-// src/pages/index.astro - Single-page site for Catrines Barbería Tradicional.
+// src/pages/index.astro
 import "../styles/global.css";
+
+// Components
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
 import Team from "../components/Team.astro";
 import Gallery from "../components/Gallery.astro";
 import Location from "../components/Location.astro";
-import Hours from "../components/Hours.astro";
 import Footer from "../components/Footer.astro";
 
+// Data
 const setmoreUrl = "https://catrines.setmore.com/";
 const phoneDisplay = "+52 81 2401 1787";
 const phoneLink = "tel:+528124011787";
@@ -21,42 +23,48 @@ const mapsLink =
 const mapEmbedUrl =
   "https://maps.google.com/maps?q=Av.%20Paseo%20de%20las%20Am%C3%A9ricas%20%232403%2C%20Monterrey%2C%20N.L.&t=&z=14&ie=UTF8&iwloc=&output=embed";
 
+// SEO Image
 const socialImageURL = new URL("/catrines-og.png", Astro.site);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Catrines Barbería Tradicional | Monterrey, NL</title>
     <meta
       name="description"
-      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado. Agenda tu cita en Catrines Barbería Tradicional en Monterrey, N.L."
+      content="Cortes de cabello clásicos y modernos, barba con toalla caliente y rituales de cuidado en Monterrey. Tradición y estilo."
     />
-    <meta
-      property="og:title"
-      content="Catrines Barbería Tradicional | Monterrey, NL"
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
     />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Catrines Barbería Tradicional" />
     <meta
       property="og:description"
-      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado. Agenda tu cita en Catrines Barbería Tradicional en Monterrey, N.L."
+      content="Cortes de cabello clásicos y modernos, barba con toalla caliente y rituales de cuidado."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_MX" />
     <meta property="og:image" content={socialImageURL} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content={socialImageURL} />
-    <meta name="theme-color" content="#0b0b0b" />
+    <meta name="theme-color" content="#18181b" />
+    <!-- zinc-900 -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={Astro.generator} />
   </head>
-  <body id="top">
+  <body
+    class="bg-zinc-900 text-zinc-100 antialiased selection:bg-gold selection:text-zinc-900"
+  >
     <Header setmoreUrl={setmoreUrl} />
-    <main class="pb-24">
+
+    <main>
       <Hero setmoreUrl={setmoreUrl} phoneLink={phoneLink} />
       <Services setmoreUrl={setmoreUrl} />
       <Team setmoreUrl={setmoreUrl} />
@@ -67,8 +75,8 @@ const socialImageURL = new URL("/catrines-og.png", Astro.site);
         whatsappLink={whatsappLink}
         mapEmbedUrl={mapEmbedUrl}
       />
-      <Hours />
     </main>
+
     <Footer
       setmoreUrl={setmoreUrl}
       phoneDisplay={phoneDisplay}
@@ -76,5 +84,27 @@ const socialImageURL = new URL("/catrines-og.png", Astro.site);
       instagramHandle={instagramHandle}
       whatsappLink={whatsappLink}
     />
+
+    <!-- Fixed Mobile Bottom Bar -->
+    <div
+      class="fixed bottom-0 left-0 z-40 w-full border-t border-white/10 bg-zinc-900/95 backdrop-blur-lg p-4 md:hidden"
+    >
+      <div class="grid grid-cols-2 gap-3">
+        <a
+          href={phoneLink}
+          class="flex items-center justify-center rounded-none border border-white/20 py-3 text-xs font-bold uppercase tracking-widest text-zinc-100 transition-colors hover:bg-white/5"
+        >
+          Llamar
+        </a>
+        <a
+          href={setmoreUrl}
+          target="_blank"
+          rel="noreferrer"
+          class="flex items-center justify-center rounded-none bg-gold py-3 text-xs font-bold uppercase tracking-widest text-zinc-900 shadow-lg"
+        >
+          Agendar
+        </a>
+      </div>
+    </div>
   </body>
 </html>

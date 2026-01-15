@@ -1,41 +1,96 @@
 ---
-// src/components/Location.astro - Location section with address, map embed, and contact buttons.
+// src/components/Location.astro
 const { address, mapsLink, whatsappLink, mapEmbedUrl } = Astro.props;
 ---
 
-<section id="ubicacion" class="section">
-  <div class="container grid gap-10 lg:grid-cols-[1fr_1.2fr]">
-    <div class="space-y-4">
-      <div class="inline-flex items-center border border-gold/30 bg-bone px-3 py-2">
-        <img
-          src="/brand/catrines-wordmark-black.png"
-          alt="Catrines Barbería Tradicional"
-          class="h-7 w-auto"
-          loading="lazy"
-        />
-      </div>
-      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Encuéntranos en Monterrey</h2>
-      <p class="text-ash">Llegas fácil. Sales mejor.</p>
+<section id="ubicacion" class="relative py-20 bg-zinc-900 overflow-hidden">
+  <!-- Subtle background texture/gradient -->
+  <div
+    class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(212,175,55,0.05),_transparent_40%)]"
+  >
+  </div>
 
-      <div class="space-y-1 text-sm">
-        <p class="text-bone">{address}</p>
-        <p class="text-xs uppercase tracking-[0.2em] text-ash">(confirma dirección)</p>
+  <div class="container-custom relative z-10">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <!-- Content Side -->
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <h2
+            class="font-serif text-3xl text-zinc-100 md:text-5xl leading-tight"
+          >
+            Encuéntranos en <span class="text-gold italic">Monterrey</span>
+          </h2>
+          <div class="h-0.5 w-16 bg-gold/50"></div>
+        </div>
+
+        <p class="text-lg text-zinc-400 font-light leading-relaxed max-w-md">
+          Ubicados en Contry, una zona central y accesible. Estacionamiento
+          disponible y un espacio pensado para que te desconectes del ruido.
+        </p>
+
+        <div class="space-y-6 border-l-2 border-white/10 pl-6 py-2">
+          <div class="space-y-1">
+            <p
+              class="text-xs font-bold uppercase tracking-widest text-gold mb-1"
+            >
+              Dirección
+            </p>
+            <p class="text-zinc-100 leading-relaxed font-serif text-lg">
+              {address}
+            </p>
+          </div>
+
+          <div class="space-y-1">
+            <p
+              class="text-xs font-bold uppercase tracking-widest text-gold mb-1"
+            >
+              Horario
+            </p>
+            <p class="text-zinc-300">Lunes a Sábado: 10:00 AM - 8:00 PM</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-4 pt-4">
+          <a
+            class="bg-white text-zinc-900 border border-white px-8 py-3 text-sm font-bold uppercase tracking-widest hover:bg-zinc-200 transition-colors"
+            href={mapsLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ver Mapa
+          </a>
+          <a
+            class="text-zinc-100 border border-white/20 px-8 py-3 text-sm font-bold uppercase tracking-widest hover:border-gold hover:text-gold transition-colors"
+            href={whatsappLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            WhatsApp
+          </a>
+        </div>
       </div>
 
-      <div class="flex flex-wrap gap-4">
-        <a class="btn btn-primary" href={mapsLink} target="_blank" rel="noreferrer">Cómo llegar</a>
-        <a class="btn btn-outline" href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
-      </div>
-    </div>
+      <!-- Map Side with Styling -->
+      <div
+        class="relative w-full aspect-square md:aspect-[16/9] lg:aspect-square"
+      >
+        <!-- Gold Frame Border -->
+        <div
+          class="absolute -inset-4 border border-gold/10 z-0 hidden lg:block"
+        >
+        </div>
 
-    <div class="border border-gold/20 bg-coal/70 p-2">
-      <iframe
-        title="Mapa de Monterrey"
-        class="h-72 w-full border-0 sm:h-96"
-        loading="lazy"
-        src={mapEmbedUrl}
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+        <div
+          class="h-full w-full bg-zinc-800 grayscale invert-[0.9] contrast-[1.1] border border-white/10 relative z-10 overflow-hidden"
+        >
+          <iframe
+            title="Mapa de Monterrey"
+            class="h-full w-full opacity-80 hover:opacity-100 transition-opacity duration-500"
+            loading="lazy"
+            src={mapEmbedUrl}
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </section>
