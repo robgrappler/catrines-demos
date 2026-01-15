@@ -21,7 +21,7 @@ const mapsLink =
 const mapEmbedUrl =
   "https://maps.google.com/maps?q=Av.%20Paseo%20de%20las%20Am%C3%A9ricas%20%232403%2C%20Monterrey%2C%20N.L.&t=&z=14&ie=UTF8&iwloc=&output=embed";
 
-const socialImageURL = "https://catrinesbarber.netlify.app/catrines-og.png";
+const socialImageURL = "https://catrinesbarber.netlify.app/catrines-og.jpg";
 ---
 
 <!doctype html>
@@ -49,7 +49,19 @@ const socialImageURL = "https://catrinesbarber.netlify.app/catrines-og.png";
     <meta property="og:image:secure_url" content={socialImageURL} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content="image/jpeg" />
+
+    <!-- Schema.org for WhatsApp -->
+    <meta
+      itemprop="name"
+      content="Catrines Barbería Tradicional | Monterrey, NL"
+    />
+    <meta
+      itemprop="description"
+      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado. Agenda tu cita en Catrines Barbería Tradicional en Monterrey, N.L."
+    />
+    <meta itemprop="image" content={socialImageURL} />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={socialImageURL} />
     <meta name="theme-color" content="#0b0b0b" />
