@@ -1,6 +1,6 @@
 ---
 // src/components/Hero.astro
-const { setmoreUrl, phoneLink } = Astro.props;
+const { setmoreUrl } = Astro.props;
 ---
 
 <section
@@ -8,34 +8,31 @@ const { setmoreUrl, phoneLink } = Astro.props;
 >
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0 z-0">
-    <div class="absolute inset-0 z-10 bg-zinc-900/70"></div>
-    <!-- Dark overlay -->
-    <!-- Assuming hero.jpg or similar exists, otherwise fallback to bg color -->
     <div
-      class="h-full w-full bg-[url('/local/hero-bg.jpg')] bg-cover bg-center opacity-60 mix-blend-overlay"
+      class="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-800/50 via-zinc-900 to-zinc-950"
     >
     </div>
+    <!-- Dark overlay -->
+    <!-- Assuming hero.jpg or similar exists, otherwise fallback to bg color -->
+
     <!-- If no image is strictly defined in prompt, rely on color or generic placeholder if provided. 
           Prompt said "Background image (darkened via CSS overlay)". 
           I will try to use a standard placeholder path if no specific file was mentioned,
           or rely on the solid dark vibe if image is missing. 
           Let's assume a generic class or inline style that can load an image if present. -->
-    <img
-      src="/instagram/catrines-4.webp"
-      class="h-full w-full object-cover opacity-40 grayscale"
-      alt="Catrines Interior"
-    />
   </div>
 
   <div
     class="container-custom relative z-20 flex flex-col items-center text-center"
   >
     <!-- Hero Logo -->
-    <div class="animate-fade-in-up mb-6 max-w-[200px] md:max-w-xs">
+    <div
+      class="mb-6 max-w-[200px] opacity-0 animate-fade-in-up md:max-w-md transition-all duration-1000"
+    >
       <img
         src="/brand/catrines-stacked.png"
         alt="Catrines Barbería"
-        class="h-auto w-full drop-shadow-2xl"
+        class="h-auto w-full drop-shadow-2xl hover:scale-105 transition-transform duration-700 ease-out"
         width="300"
         height="300"
         loading="eager"
@@ -44,7 +41,8 @@ const { setmoreUrl, phoneLink } = Astro.props;
 
     <!-- Value Prop -->
     <h1
-      class="font-serif text-2xl font-light leading-tight text-zinc-100 md:text-4xl lg:text-5xl max-w-2xl mx-auto"
+      class="font-serif text-2xl font-light leading-tight text-zinc-100 md:text-4xl lg:text-5xl max-w-2xl mx-auto opacity-0 animate-fade-in-up stagger-1"
+      style="animation-fill-mode: forwards;"
     >
       <span
         class="block text-gold mb-2 text-lg md:text-xl uppercase tracking-[0.2em] font-sans font-medium"
@@ -54,22 +52,35 @@ const { setmoreUrl, phoneLink } = Astro.props;
     </h1>
 
     <!-- CTA -->
-    <div class="mt-8 md:mt-10 flex flex-col gap-4 sm:flex-row">
+    <div
+      class="mt-8 md:mt-10 flex flex-col gap-4 sm:flex-row opacity-0 animate-fade-in-up stagger-2"
+      style="animation-fill-mode: forwards;"
+    >
       <a
         href={setmoreUrl}
         target="_blank"
         rel="noreferrer"
-        class="min-w-[180px] bg-gold py-3.5 px-8 text-center text-sm font-bold uppercase tracking-widest text-zinc-900 transition-all hover:bg-white hover:text-zinc-900 shadow-xl"
+        class="min-w-[180px] bg-gold py-3.5 px-8 text-center text-sm font-bold uppercase tracking-widest text-zinc-900 transition-all duration-300 hover:bg-white hover:text-zinc-900 shadow-xl hover:-translate-y-0.5"
       >
         Agendar Cita
       </a>
-      <!-- Optional Secondary Button for Desktop -->
-      <a
-        href={phoneLink}
-        class="hidden sm:inline-block min-w-[180px] border border-white/20 py-3.5 px-8 text-center text-sm font-bold uppercase tracking-widest text-white transition-all hover:border-gold hover:text-gold"
-      >
-        Llamar
-      </a>
     </div>
   </div>
+
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+  </style>
 </section>
