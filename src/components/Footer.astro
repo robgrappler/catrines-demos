@@ -10,15 +10,12 @@ const { setmoreUrl, instagramHandle } = Astro.props;
     >
       <!-- Brand Column -->
       <div class="space-y-6 max-w-sm">
-        <img
-          src="/brand/catrines-wordmark-white.png"
-          alt="Catrines Barbería Tradicional"
-          class="h-6 w-auto opacity-90"
-          loading="lazy"
-        />
+        <h2 class="text-xl font-serif text-white uppercase tracking-widest">
+          Barbería <span class="text-gold">Demo</span>
+        </h2>
         <p class="text-zinc-500 text-sm leading-relaxed">
           Respetando la tradición de la barbería clásica. <br />
-          Un espacio para caballeros en Monterrey, N.L.
+          Tu espacio de confianza para el cuidado personal.
         </p>
       </div>
 
@@ -45,14 +42,14 @@ const { setmoreUrl, instagramHandle } = Astro.props;
           </h3>
           <nav class="flex flex-col gap-3">
             <a
-              href="https://instagram.com/barberia.catrines"
+              href="#"
               target="_blank"
               class="text-sm text-zinc-400 hover:text-white transition-colors"
             >
               Instagram
             </a>
             <a
-              href="https://facebook.com"
+              href="#"
               target="_blank"
               class="text-sm text-zinc-400 hover:text-white transition-colors"
             >
@@ -68,7 +65,7 @@ const { setmoreUrl, instagramHandle } = Astro.props;
       class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
     >
       <p class="text-xs text-zinc-600 uppercase tracking-wider">
-        &copy; {new Date().getFullYear()} Catrines Barbería. Todos los derechos reservados.
+        &copy; {new Date().getFullYear()} Barbería Demo. Todos los derechos reservados.
       </p>
       <p class="text-xs text-zinc-700">
         Diseño Demo por <span class="text-zinc-500"

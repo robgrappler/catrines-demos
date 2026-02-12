@@ -12,14 +12,12 @@ import Location from "../components/Location.astro";
 import Footer from "../components/Footer.astro";
 
 // Data
-const setmoreUrl = "https://catrines.setmore.com/";
-
-const instagramHandle = "@barberia.catrines";
-const address = "Av. Paseo de las Américas #2403, Monterrey, N.L.";
-const mapsLink =
-  "https://www.google.com/maps/search/?api=1&query=Av.%20Paseo%20de%20las%20Am%C3%A9ricas%20%232403%2C%20Monterrey%2C%20N.L.";
+const setmoreUrl = "#";
+const instagramHandle = "@barberia.demo";
+const address = "Av. Principal #123, Ciudad, Estado";
+const mapsLink = "#";
 const mapEmbedUrl =
-  "https://maps.google.com/maps?q=Av.%20Paseo%20de%20las%20Am%C3%A9ricas%20%232403%2C%20Monterrey%2C%20N.L.&t=&z=14&ie=UTF8&iwloc=&output=embed";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3596.5!2d-100.3!3d25.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDM2JzAwLjAiTiAxMDDCsDE4JzAwLjAiVw!5e0!3m2!1sen!2smx!4v1234567890";
 
 // SEO Image
 const socialImageURL = new URL("/catrines-og.png", Astro.site);
@@ -30,10 +28,10 @@ const socialImageURL = new URL("/catrines-og.png", Astro.site);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Catrines Barbería Tradicional | Monterrey, NL</title>
+    <title>Nombre de la Barbería | Tu Ciudad</title>
     <meta
       name="description"
-      content="Cortes de cabello clásicos y modernos, barba con toalla caliente y rituales de cuidado en Monterrey. Tradición y estilo."
+      content="Cortes de cabello clásicos y modernos, rituales de cuidado y estilo tradicional para el caballero moderno."
     />
 
     <!-- Fonts -->
@@ -45,10 +43,10 @@ const socialImageURL = new URL("/catrines-og.png", Astro.site);
     />
 
     <!-- Open Graph / Social -->
-    <meta property="og:title" content="Catrines Barbería Tradicional" />
+    <meta property="og:title" content="Nombre de la Barbería" />
     <meta
       property="og:description"
-      content="Cortes de cabello clásicos y modernos, barba con toalla caliente y rituales de cuidado."
+      content="Cortes de cabello clásicos y modernos, rituales de cuidado y estilo tradicional."
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={socialImageURL} />
