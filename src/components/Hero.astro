@@ -1,12 +1,16 @@
 ---
 // src/components/Hero.astro - Hero section with headline, CTAs, and trust badges.
 const { setmoreUrl, phoneLink } = Astro.props;
-const badges = ['Barbería de autor', 'Atención personalizada', 'Toalla caliente'];
+const badges = [
+  "Barbería de autor",
+  "Atención personalizada",
+  "Toalla caliente",
+];
 const trustPoints = [
-  'Toalla caliente en servicios de barba',
-  'Desvanecidos limpios y tijera con precisión',
-  'Ambiente clásico y atención uno a uno',
-  'Reserva en línea en menos de un minuto'
+  "Toalla caliente en servicios de barba",
+  "Desvanecidos limpios y tijera con precisión",
+  "Ambiente clásico y atención uno a uno",
+  "Reserva en línea en menos de un minuto",
 ];
 ---
 
@@ -23,29 +27,51 @@ const trustPoints = [
   <div class="container relative">
     <div class="max-w-2xl space-y-6">
       <div class="flex flex-wrap gap-2 reveal">
-        {badges.map((badge) => (
-          <span class="chip" aria-label={badge}>{badge}</span>
-        ))}
+        {
+          badges.map((badge) => (
+            <span class="chip" aria-label={badge}>
+              {badge}
+            </span>
+          ))
+        }
       </div>
 
       <div class="space-y-4 reveal reveal-delay-1">
-        <h1 class="font-heading text-4xl uppercase tracking-[0.25em] sm:text-5xl">Alvarez Barber</h1>
-        <p class="text-lg text-ash sm:text-xl">Cortes con carácter, barba con toalla caliente y detalle en cada acabado. En Monterrey, N.L.</p>
-        <p class="text-sm uppercase tracking-[0.35em] text-goldLight">Agenda fácil. Llega puntual. Sal con presencia.</p>
+        <h1
+          class="font-heading text-4xl uppercase tracking-[0.25em] sm:text-5xl"
+        >
+          Alvarez Barber
+        </h1>
+        <p class="text-lg text-ash sm:text-xl">
+          Cortes con carácter, barba con toalla caliente y detalle en cada
+          acabado. En Guadalajara, Jal.
+        </p>
+        <p class="text-sm uppercase tracking-[0.35em] text-goldLight">
+          Agenda fácil. Llega puntual. Sal con presencia.
+        </p>
       </div>
 
       <div class="flex flex-wrap gap-4 reveal reveal-delay-2">
-        <a class="btn btn-primary" href={setmoreUrl} target="_blank" rel="noreferrer">Agenda tu cita</a>
+        <a
+          class="btn btn-primary"
+          href={setmoreUrl}
+          target="_blank"
+          rel="noreferrer">Agenda tu cita</a
+        >
         <a class="btn btn-outline" href={phoneLink}>Llamar ahora</a>
       </div>
 
-      <ul class="grid gap-3 text-sm text-ash sm:grid-cols-2 reveal reveal-delay-3">
-        {trustPoints.map((point) => (
-          <li class="flex items-start gap-2">
-            <span class="mt-1 h-2 w-2 border border-gold"></span>
-            <span>{point}</span>
-          </li>
-        ))}
+      <ul
+        class="grid gap-3 text-sm text-ash sm:grid-cols-2 reveal reveal-delay-3"
+      >
+        {
+          trustPoints.map((point) => (
+            <li class="flex items-start gap-2">
+              <span class="mt-1 h-2 w-2 border border-gold" />
+              <span>{point}</span>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>

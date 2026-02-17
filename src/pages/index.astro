@@ -18,21 +18,18 @@ const instagramHandle = "@alvarezbarber";
 
 const locations = [
   {
-    label: "Andrés Terán 412",
-    address: "Andrés Terán 412, Monterrey, N.L.",
+    label: "Santa Teresita",
+    address: "Calle Juan Álvarez 1638-A, Guadalajara, Jal.",
     mapsLink:
-      "https://www.google.com/maps/search/?api=1&query=Andr%C3%A9s%20Ter%C3%A1n%20412%2C%20Monterrey%2C%20N.L.",
-  },
-  {
-    label: "Francisco Zarco 1151",
-    address: "Francisco Zarco 1151, Monterrey, N.L.",
-    mapsLink:
-      "https://www.google.com/maps/search/?api=1&query=Francisco%20Zarco%201151%2C%20Monterrey%2C%20N.L.",
+      "https://www.google.com/maps/search/?api=1&query=Calle+Juan+%C3%81lvarez+1638-A%2C+Guadalajara%2C+Jal.",
   },
 ];
 
 const mapEmbedUrl =
-  "https://maps.google.com/maps?q=Andr%C3%A9s%20Ter%C3%A1n%20412%2C%20Monterrey%2C%20N.L.&t=&z=14&ie=UTF8&iwloc=&output=embed";
+  "https://www.google.com/maps/embed/v1/place?key=REPLACE_ME&q=Calle+Juan+%C3%81lvarez+1638-A%2C+Guadalajara%2C+Jal.";
+// Note: Using a simplified URL for now as I don't have an API key, fallback to a search URL if it supports embed
+const mapEmbedUrlSearch =
+  "https://maps.google.com/maps?q=Calle%20Juan%20%C3%81lvarez%201638-A%2C%20Guadalajara%2C%20Jal.&t=&z=14&ie=UTF8&iwloc=&output=embed";
 
 const socialImageURL = "https://alvarezbarber.netlify.app/og-catrines.png";
 ---
@@ -42,15 +39,15 @@ const socialImageURL = "https://alvarezbarber.netlify.app/og-catrines.png";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Alvarez Barber | Monterrey, NL</title>
+    <title>Alvarez Barber | Guadalajara, Jal</title>
     <meta
       name="description"
-      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado en Alvarez Barber. Visítanos en Andrés Terán 412 o Francisco Zarco 1151, Monterrey, N.L."
+      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado en Alvarez Barber. Visítanos en Calle Juan Álvarez 1638-A, Santa Teresita, Guadalajara, Jal."
     />
-    <meta property="og:title" content="Alvarez Barber | Monterrey, NL" />
+    <meta property="og:title" content="Alvarez Barber | Guadalajara, Jal" />
     <meta
       property="og:description"
-      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado en Alvarez Barber. Visítanos en Andrés Terán 412 o Francisco Zarco 1151, Monterrey, N.L."
+      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado en Alvarez Barber. Visítanos en Calle Juan Álvarez 1638-A, Santa Teresita, Guadalajara, Jal."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://alvarezbarber.netlify.app/" />
@@ -62,10 +59,10 @@ const socialImageURL = "https://alvarezbarber.netlify.app/og-catrines.png";
     <meta property="og:image:type" content="image/jpeg" />
 
     <!-- Schema.org for WhatsApp -->
-    <meta itemprop="name" content="Alvarez Barber | Monterrey, NL" />
+    <meta itemprop="name" content="Alvarez Barber | Guadalajara, Jal" />
     <meta
       itemprop="description"
-      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado en Alvarez Barber. Visítanos en Andrés Terán 412 o Francisco Zarco 1151, Monterrey, N.L."
+      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado en Alvarez Barber. Visítanos en Calle Juan Álvarez 1638-A, Santa Teresita, Guadalajara, Jal."
     />
     <meta itemprop="image" content={socialImageURL} />
 
@@ -85,7 +82,7 @@ const socialImageURL = "https://alvarezbarber.netlify.app/og-catrines.png";
       <Location
         locations={locations}
         whatsappLink={whatsappLink}
-        mapEmbedUrl={mapEmbedUrl}
+        mapEmbedUrl={mapEmbedUrlSearch}
       />
       <Hours />
     </main>
