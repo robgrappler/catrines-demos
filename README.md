@@ -1,4 +1,4 @@
-# Catrines Barbería Tradicional (Astro + Tailwind)
+# Alvarez Barbería Tradicional (Astro + Tailwind)
 
 One-page Astro mockup for a premium barber shop site in Monterrey, N.L. Includes Setmore booking, click-to-call, and WhatsApp CTAs.
 

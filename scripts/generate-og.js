@@ -12,8 +12,8 @@ const width = 1200;
 const height = 630;
 const logoWidth = 720;
 
-const logoPath = path.join(rootDir, 'public', 'brand', 'catrines-stacked.png');
-const outputPath = path.join(rootDir, 'public', 'og-catrines.png');
+const logoPath = path.join(rootDir, 'public', 'brand', 'alvarez-logo-white.svg');
+const outputPath = path.join(rootDir, 'public', 'alvarez-og.png');
 
 try {
   await fs.access(logoPath);

@@ -1,22 +1,51 @@
 ---
 // src/components/Gallery.astro - Gallery section with Instagram placeholders.
 const galleryImages = [
-  { src: '/instagram/alvarez-portrait.jpg', alt: 'Retrato de barbero en Alvarez Barber' },
-  { src: '/instagram/catrines-1.webp', alt: 'Detalle de corte en Alvarez Barber 1' },
-  { src: '/instagram/catrines-2.webp', alt: 'Detalle de corte en Alvarez Barber 2' },
-  { src: '/instagram/catrines-3.webp', alt: 'Detalle de corte en Alvarez Barber 3' },
-  { src: '/instagram/catrines-4.webp', alt: 'Detalle de corte en Alvarez Barber 4' },
-  { src: '/instagram/catrines-5.webp', alt: 'Detalle de corte en Alvarez Barber 5' },
-  { src: '/instagram/catrines-6.webp', alt: 'Detalle de corte en Alvarez Barber 6' },
-  { src: '/instagram/catrines-7.webp', alt: 'Detalle de corte en Alvarez Barber 7' },
-  { src: '/instagram/catrines-8.webp', alt: 'Detalle de corte en Alvarez Barber 8' }
+  {
+    src: "/instagram/alvarez-portrait.jpg",
+    alt: "Retrato de barbero en Alvarez Barber",
+  },
+  {
+    src: "/instagram/alvarez-1.webp",
+    alt: "Detalle de corte en Alvarez Barber 1",
+  },
+  {
+    src: "/instagram/alvarez-2.webp",
+    alt: "Detalle de corte en Alvarez Barber 2",
+  },
+  {
+    src: "/instagram/alvarez-3.webp",
+    alt: "Detalle de corte en Alvarez Barber 3",
+  },
+  {
+    src: "/instagram/alvarez-4.webp",
+    alt: "Detalle de corte en Alvarez Barber 4",
+  },
+  {
+    src: "/instagram/alvarez-5.webp",
+    alt: "Detalle de corte en Alvarez Barber 5",
+  },
+  {
+    src: "/instagram/alvarez-6.webp",
+    alt: "Detalle de corte en Alvarez Barber 6",
+  },
+  {
+    src: "/instagram/alvarez-7.webp",
+    alt: "Detalle de corte en Alvarez Barber 7",
+  },
+  {
+    src: "/instagram/alvarez-8.webp",
+    alt: "Detalle de corte en Alvarez Barber 8",
+  },
 ];
 ---
 
 <section id="galeria" class="section bg-ember/60">
   <div class="container space-y-8">
     <div class="space-y-2">
-      <div class="inline-flex items-center border border-gold/30 bg-bone px-3 py-2">
+      <div
+        class="inline-flex items-center border border-gold/30 bg-bone px-3 py-2"
+      >
         <img
           src="/brand/alvarez-logo-white.svg"
           alt="Alvarez Barber"
@@ -24,26 +53,32 @@ const galleryImages = [
           loading="lazy"
         />
       </div>
-      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Cortes reales. Resultados que hablan.</h2>
+      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">
+        Cortes reales. Resultados que hablan.
+      </h2>
       <p class="text-ash">Inspiración directa desde nuestra galería.</p>
-      <p class="text-sm uppercase tracking-[0.3em] text-goldLight">@alvarezbarber</p>
+      <p class="text-sm uppercase tracking-[0.3em] text-goldLight">
+        @alvarezbarber
+      </p>
     </div>
 
     <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-      {galleryImages.map((image, index) => (
-        <div
-          class="aspect-[4/5] overflow-hidden border border-gold/20 bg-ember/70 reveal"
-          style={`animation-delay: ${index * 0.05}s;`}
-        >
-          <img
-            src={image.src}
-            alt={image.alt}
-            class="h-full w-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      ))}
+      {
+        galleryImages.map((image, index) => (
+          <div
+            class="aspect-[4/5] overflow-hidden border border-gold/20 bg-ember/70 reveal"
+            style={`animation-delay: ${index * 0.05}s;`}
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
