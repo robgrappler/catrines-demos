@@ -1,36 +1,41 @@
 ---
-// src/components/Location.astro - Location section with address, map embed, and contact buttons.
-const { address, mapsLink, whatsappLink, mapEmbedUrl } = Astro.props;
+// src/components/Location.astro - Location section with two branch cards, map embed, and contact buttons.
+const { locations = [], whatsappLink, mapEmbedUrl } = Astro.props;
+const mapTitle = locations.length > 0 ? `Mapa de ${locations[0].label}` : "Mapa de ubicación";
 ---
 
 <section id="ubicacion" class="section">
   <div class="container grid gap-10 lg:grid-cols-[1fr_1.2fr]">
     <div class="space-y-4">
-      <div class="inline-flex items-center border border-gold/30 bg-bone px-3 py-2">
+      <div class="inline-flex items-center border border-gold/30 bg-ink px-3 py-2">
         <img
-          src="/brand/catrines-wordmark-black.png"
-          alt="Catrines Barbería Tradicional"
-          class="h-7 w-auto"
+          src="/brand/alvarez-logo-white.svg"
+          alt="Alvarez Barber"
+          class="h-8 w-auto"
           loading="lazy"
         />
       </div>
-      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Encuéntranos en Monterrey</h2>
-      <p class="text-ash">Llegas fácil. Sales mejor.</p>
+      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Nuestras ubicaciones</h2>
+      <p class="text-ash">Elige tu sucursal y llega directo a la silla.</p>
 
-      <div class="space-y-1 text-sm">
-        <p class="text-bone">{address}</p>
-        <p class="text-xs uppercase tracking-[0.2em] text-ash">(confirma dirección)</p>
+      <div class="grid gap-3">
+        {locations.map((location) => (
+          <article class="border border-gold/20 bg-coal/70 p-4">
+            <p class="text-xs uppercase tracking-[0.2em] text-goldLight">{location.label}</p>
+            <p class="mt-1 text-sm text-bone">{location.address}</p>
+            <a class="btn btn-outline mt-3 text-[0.65rem]" href={location.mapsLink} target="_blank" rel="noreferrer">
+              Cómo llegar
+            </a>
+          </article>
+        ))}
       </div>
 
-      <div class="flex flex-wrap gap-4">
-        <a class="btn btn-primary" href={mapsLink} target="_blank" rel="noreferrer">Cómo llegar</a>
-        <a class="btn btn-outline" href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
-      </div>
+      <a class="btn btn-primary" href={whatsappLink} target="_blank" rel="noreferrer">WhatsApp</a>
     </div>
 
     <div class="border border-gold/20 bg-coal/70 p-2">
       <iframe
-        title="Mapa de Monterrey"
+        title={mapTitle}
         class="h-72 w-full border-0 sm:h-96"
         loading="lazy"
         src={mapEmbedUrl}

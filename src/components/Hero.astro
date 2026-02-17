@@ -1,12 +1,12 @@
 ---
 // src/components/Hero.astro - Hero section with headline, CTAs, and trust badges.
 const { setmoreUrl, phoneLink } = Astro.props;
-const badges = ['Barbería tradicional', 'Atención con calma', 'Toalla caliente'];
+const badges = ['Barbería de autor', 'Atención personalizada', 'Toalla caliente'];
 const trustPoints = [
   'Toalla caliente en servicios de barba',
-  'Desvanecidos limpios y tijera con detalle',
-  'Ambiente clásico, trato directo',
-  'Agenda 24/7 en línea'
+  'Desvanecidos limpios y tijera con precisión',
+  'Ambiente clásico y atención uno a uno',
+  'Reserva en línea en menos de un minuto'
 ];
 ---
 
@@ -14,7 +14,7 @@ const trustPoints = [
   <div class="absolute inset-0 bg-hero-radial"></div>
   <div class="absolute inset-0 bg-hero-radial-2"></div>
   <img
-    src="/brand/catrines-stacked-white.png"
+    src="/brand/alvarez-mark-gold.svg"
     alt=""
     aria-hidden="true"
     class="pointer-events-none absolute right-6 top-6 h-40 w-auto opacity-10 blur-sm sm:h-56"
@@ -29,9 +29,9 @@ const trustPoints = [
       </div>
 
       <div class="space-y-4 reveal reveal-delay-1">
-        <h1 class="font-heading text-4xl uppercase tracking-[0.25em] sm:text-5xl">Catrines Barbería Tradicional</h1>
-        <p class="text-lg text-ash sm:text-xl">Cortes con carácter, barba con toalla caliente y atención como debe ser. En Monterrey, N.L.</p>
-        <p class="text-sm uppercase tracking-[0.35em] text-goldLight">Agenda en segundos. Llega, siéntate, sal con estilo.</p>
+        <h1 class="font-heading text-4xl uppercase tracking-[0.25em] sm:text-5xl">Alvarez Barber</h1>
+        <p class="text-lg text-ash sm:text-xl">Cortes con carácter, barba con toalla caliente y detalle en cada acabado. En Monterrey, N.L.</p>
+        <p class="text-sm uppercase tracking-[0.35em] text-goldLight">Agenda fácil. Llega puntual. Sal con presencia.</p>
       </div>
 
       <div class="flex flex-wrap gap-4 reveal reveal-delay-2">

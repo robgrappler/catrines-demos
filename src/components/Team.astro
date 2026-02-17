@@ -6,10 +6,10 @@ const members = [
   {
     name: 'Diego',
     role: 'Fundador / Barbero',
-    bio: 'El ojo detrás del estilo Catrines. Cortes con carácter y acabados limpios, sin prisa y con precisión.',
+    bio: 'El ojo detrás del estilo Alvarez Barber. Cortes con carácter y acabados limpios, sin prisa y con precisión.',
     badges: ['Corte clásico y moderno', 'Detalle con tijera', 'Atención directa'],
-    image: '/team-diego.jpg',
-    alt: 'Diego — Fundador / Barbero en Catrines Barbería'
+    image: '/team-diego-main.png',
+    alt: 'Diego — Fundador / Barbero en Alvarez Barber'
   },
   {
     name: 'Américo',
@@ -17,7 +17,7 @@ const members = [
     bio: 'Ritmo firme y manos seguras. Desvanecidos pulidos, barba con forma y consistencia en cada cita.',
     badges: ['Desvanecidos limpios', 'Perfilado de barba', 'Consistencia'],
     image: '/team-americo.jpg',
-    alt: 'Américo — Barbero / Mano derecha en Catrines Barbería'
+    alt: 'Américo — Barbero / Mano derecha en Alvarez Barber'
   }
 ];
 ---
@@ -26,13 +26,13 @@ const members = [
   <div class="container space-y-8">
     <div class="space-y-2">
       <img
-        src="/brand/catrines-icon-white.png"
-        alt="Catrines Barbería Tradicional"
+        src="/brand/alvarez-mark-gold.svg"
+        alt="Alvarez Barber"
         class="h-8 w-auto"
         loading="lazy"
       />
       <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">El equipo</h2>
-      <p class="text-ash">Dos manos, un estándar: detalle, limpieza y trato directo.</p>
+      <p class="text-ash">Dos barberos, un mismo estándar: precisión, limpieza y trato directo.</p>
     </div>
 
     <div class="grid gap-6 lg:grid-cols-2">
@@ -68,7 +68,7 @@ const members = [
 
     <div class="flex flex-col gap-3 border border-gold/20 bg-coal/70 p-5 sm:flex-row sm:items-center sm:justify-between">
       <p class="text-sm uppercase tracking-[0.2em] text-ash">Agenda con el equipo</p>
-      <a class="btn btn-primary text-xs" href={setmoreUrl} target="_blank" rel="noreferrer">Agendar en Setmore</a>
+      <a class="btn btn-primary text-xs" href={setmoreUrl} target="_blank" rel="noreferrer">Agendar cita</a>
     </div>
   </div>
 </section>

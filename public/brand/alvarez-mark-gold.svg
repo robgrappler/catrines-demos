@@ -1,0 +1,11 @@
+<!-- alvarez-mark-gold.svg - Compact Alvarez Barber monogram for section badges and small logo spots. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Alvarez Barber Monograma</title>
+  <desc id="desc">Símbolo dorado de Alvarez Barber con líneas geométricas.</desc>
+  <g fill="none" stroke="#caa45d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 102h80" />
+    <path d="M64 20l20 20" />
+    <path d="M64 20l-20 20" />
+    <path d="M44 40v44l20 18 20-18V40" />
+  </g>
+</svg>

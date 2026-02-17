@@ -1,0 +1,50 @@
+<!-- alvarez-logo-white.svg - Main Alvarez Barber logo lockup for dark backgrounds. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Alvarez Barber Logo</title>
+  <desc id="desc">Logotipo de Alvarez Barber con tipografía clásica, símbolo dorado y barba ilustrada.</desc>
+  <defs>
+    <style>
+      .word {
+        font-family: "Times New Roman", Georgia, serif;
+        font-weight: 700;
+        fill: #f8f8f8;
+      }
+      .small {
+        font-family: "Arial", "Helvetica", sans-serif;
+        font-weight: 600;
+        letter-spacing: 10px;
+        fill: #f8f8f8;
+      }
+      .gold {
+        stroke: #caa45d;
+      }
+      .beard {
+        fill: none;
+        stroke: #f8f8f8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+
+  <text x="270" y="125" class="small" font-size="62">ÁLVAREZ</text>
+  <text x="40" y="250" class="word" font-size="190">BARBER</text>
+
+  <g transform="translate(920 72) scale(1.1)" class="beard" stroke-width="8">
+    <path d="M30 34c12-18 56-18 68 0" />
+    <path d="M45 98c10 8 28 8 38 0" />
+    <path d="M42 100c-5 22 2 45 22 54" />
+    <path d="M87 100c5 22-2 45-22 54" />
+    <path d="M54 34c-4 16-4 32 0 46" />
+    <path d="M74 34c4 16 4 32 0 46" />
+    <path d="M55 80c6 7 12 9 19 9s13-2 19-9" />
+  </g>
+
+  <g class="gold" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" transform="translate(585 265)">
+    <path d="M-420 10h310" />
+    <path d="M110 10h310" />
+    <path d="M0 -46l28 28" />
+    <path d="M0 -46l-28 28" />
+    <path d="M-28 -18v56l28 24 28-24v-56" />
+  </g>
+</svg>

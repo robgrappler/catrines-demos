@@ -1,5 +1,5 @@
 ---
-// src/pages/index.astro - Single-page site for Catrines Barbería Tradicional.
+// src/pages/index.astro - Single-page site for Alvarez Barber.
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
@@ -14,12 +14,25 @@ const setmoreUrl = "https://catrines.setmore.com/";
 const phoneDisplay = "+52 81 2401 1787";
 const phoneLink = "tel:+528124011787";
 const whatsappLink = "https://wa.me/528124011787";
-const instagramHandle = "@barberia.catrines";
-const address = "Av. Paseo de las Américas #2403, Monterrey, N.L.";
-const mapsLink =
-  "https://www.google.com/maps/search/?api=1&query=Av.%20Paseo%20de%20las%20Am%C3%A9ricas%20%232403%2C%20Monterrey%2C%20N.L.";
+const instagramHandle = "@alvarezbarber";
+
+const locations = [
+  {
+    label: "Andrés Terán 412",
+    address: "Andrés Terán 412, Monterrey, N.L.",
+    mapsLink:
+      "https://www.google.com/maps/search/?api=1&query=Andr%C3%A9s%20Ter%C3%A1n%20412%2C%20Monterrey%2C%20N.L."
+  },
+  {
+    label: "Francisco Zarco 1151",
+    address: "Francisco Zarco 1151, Monterrey, N.L.",
+    mapsLink:
+      "https://www.google.com/maps/search/?api=1&query=Francisco%20Zarco%201151%2C%20Monterrey%2C%20N.L."
+  }
+];
+
 const mapEmbedUrl =
-  "https://maps.google.com/maps?q=Av.%20Paseo%20de%20las%20Am%C3%A9ricas%20%232403%2C%20Monterrey%2C%20N.L.&t=&z=14&ie=UTF8&iwloc=&output=embed";
+  "https://maps.google.com/maps?q=Andr%C3%A9s%20Ter%C3%A1n%20412%2C%20Monterrey%2C%20N.L.&t=&z=14&ie=UTF8&iwloc=&output=embed";
 
 const socialImageURL = "https://catrinesbarber.netlify.app/catrines-og.jpg";
 ---
@@ -29,18 +42,18 @@ const socialImageURL = "https://catrinesbarber.netlify.app/catrines-og.jpg";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Catrines Barbería Tradicional | Monterrey, NL</title>
+    <title>Alvarez Barber | Monterrey, NL</title>
     <meta
       name="description"
-      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado. Agenda tu cita en Catrines Barbería Tradicional en Monterrey, N.L."
+      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado en Alvarez Barber. Visítanos en Andrés Terán 412 o Francisco Zarco 1151, Monterrey, N.L."
     />
     <meta
       property="og:title"
-      content="Catrines Barbería Tradicional | Monterrey, NL"
+      content="Alvarez Barber | Monterrey, NL"
     />
     <meta
       property="og:description"
-      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado. Agenda tu cita en Catrines Barbería Tradicional en Monterrey, N.L."
+      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado en Alvarez Barber. Visítanos en Andrés Terán 412 o Francisco Zarco 1151, Monterrey, N.L."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://catrinesbarber.netlify.app/" />
@@ -54,11 +67,11 @@ const socialImageURL = "https://catrinesbarber.netlify.app/catrines-og.jpg";
     <!-- Schema.org for WhatsApp -->
     <meta
       itemprop="name"
-      content="Catrines Barbería Tradicional | Monterrey, NL"
+      content="Alvarez Barber | Monterrey, NL"
     />
     <meta
       itemprop="description"
-      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado. Agenda tu cita en Catrines Barbería Tradicional en Monterrey, N.L."
+      content="Cortes clásicos y modernos, barba con toalla caliente y rituales de cuidado en Alvarez Barber. Visítanos en Andrés Terán 412 o Francisco Zarco 1151, Monterrey, N.L."
     />
     <meta itemprop="image" content={socialImageURL} />
 
@@ -76,8 +89,7 @@ const socialImageURL = "https://catrinesbarber.netlify.app/catrines-og.jpg";
       <Team setmoreUrl={setmoreUrl} />
       <Gallery />
       <Location
-        address={address}
-        mapsLink={mapsLink}
+        locations={locations}
         whatsappLink={whatsappLink}
         mapEmbedUrl={mapEmbedUrl}
       />

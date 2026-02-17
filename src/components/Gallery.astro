@@ -1,14 +1,15 @@
 ---
 // src/components/Gallery.astro - Gallery section with Instagram placeholders.
 const galleryImages = [
-  { src: '/instagram/catrines-1.webp', alt: 'Detalle de corte en Catrines 1' },
-  { src: '/instagram/catrines-2.webp', alt: 'Detalle de corte en Catrines 2' },
-  { src: '/instagram/catrines-3.webp', alt: 'Detalle de corte en Catrines 3' },
-  { src: '/instagram/catrines-4.webp', alt: 'Detalle de corte en Catrines 4' },
-  { src: '/instagram/catrines-5.webp', alt: 'Detalle de corte en Catrines 5' },
-  { src: '/instagram/catrines-6.webp', alt: 'Detalle de corte en Catrines 6' },
-  { src: '/instagram/catrines-7.webp', alt: 'Detalle de corte en Catrines 7' },
-  { src: '/instagram/catrines-8.webp', alt: 'Detalle de corte en Catrines 8' }
+  { src: '/instagram/alvarez-portrait.jpg', alt: 'Retrato de barbero en Alvarez Barber' },
+  { src: '/instagram/catrines-1.webp', alt: 'Detalle de corte en Alvarez Barber 1' },
+  { src: '/instagram/catrines-2.webp', alt: 'Detalle de corte en Alvarez Barber 2' },
+  { src: '/instagram/catrines-3.webp', alt: 'Detalle de corte en Alvarez Barber 3' },
+  { src: '/instagram/catrines-4.webp', alt: 'Detalle de corte en Alvarez Barber 4' },
+  { src: '/instagram/catrines-5.webp', alt: 'Detalle de corte en Alvarez Barber 5' },
+  { src: '/instagram/catrines-6.webp', alt: 'Detalle de corte en Alvarez Barber 6' },
+  { src: '/instagram/catrines-7.webp', alt: 'Detalle de corte en Alvarez Barber 7' },
+  { src: '/instagram/catrines-8.webp', alt: 'Detalle de corte en Alvarez Barber 8' }
 ];
 ---
 
@@ -17,15 +18,15 @@ const galleryImages = [
     <div class="space-y-2">
       <div class="inline-flex items-center border border-gold/30 bg-bone px-3 py-2">
         <img
-          src="/brand/catrines-stacked-black.png"
-          alt="Catrines Barbería Tradicional"
+          src="/brand/alvarez-logo-white.svg"
+          alt="Alvarez Barber"
           class="h-8 w-auto"
           loading="lazy"
         />
       </div>
-      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Trabajo real. Estilo real.</h2>
-      <p class="text-ash">Mira resultados y detalles en Instagram.</p>
-      <p class="text-sm uppercase tracking-[0.3em] text-goldLight">@barberia.catrines</p>
+      <h2 class="font-heading text-3xl uppercase tracking-[0.2em]">Cortes reales. Resultados que hablan.</h2>
+      <p class="text-ash">Inspiración directa desde nuestra galería.</p>
+      <p class="text-sm uppercase tracking-[0.3em] text-goldLight">@alvarezbarber</p>
     </div>
 
     <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
